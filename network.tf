@@ -3,7 +3,7 @@ resource "azurerm_virtual_network" "main_vnet" {
   location            = azurerm_resource_group.main_rg.location
   resource_group_name = azurerm_resource_group.main_rg.name
   address_space       = [var.main_vnet["vnet1"].vnet_cidr]
-  /*dns_servers         = [azurerm_private_dns_resolver_inbound_endpoint.main_inbound_ep.ip_configurations[0].private_ip_address]*/
+  dns_servers         = [azurerm_private_dns_resolver_inbound_endpoint.main_inbound_ep.ip_configurations[0].private_ip_address]
   tags = {
     Environment = "Test"
   }
